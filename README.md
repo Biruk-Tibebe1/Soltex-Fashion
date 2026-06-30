@@ -28,7 +28,7 @@ Soltex-Fashion is a modern Next.js e-commerce storefront built for a curated thr
 
 ![Home page screenshot](./screenshot-home.png)
 
-![Shop page screenshot](./screenshot-shop.png)
+![Shop page screenshot](./screenshot-shop-wrapper.png)
 
 ![Cart page screenshot](./screenshot-cart.png)
 
