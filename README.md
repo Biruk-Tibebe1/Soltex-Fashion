@@ -26,23 +26,41 @@ Soltex-Fashion is a modern Next.js e-commerce storefront built for a curated thr
 
 ## Screenshots
 
-![Soltex-Fashion home page example](https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1200&q=80)
+![Home page screenshot](./screenshot-home.png)
 
-![Shop and product browsing example](https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80)
+![Shop page screenshot](./screenshot-shop.png)
 
-![Stylist AI assistant example](https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=1200&q=80)
+![Cart page screenshot](./screenshot-cart.png)
 
-> These image links are included as visual examples. Replace them with real app screenshots once the storefront is deployed or when you capture the UI directly.
+> These screenshots were captured from the running local application. Replace these files with updated captures if the UI changes.
 
 ## App Pages
 
-- `Home` — landing page for the brand, with hero content, featured product sections, and marketing messaging.
-- `Shop` — catalog browsing, product filtering, and collection discovery with a clean card layout.
-- `Product details` — detailed product view with images, description, size options, styling notes, and add-to-cart flow.
-- `Cart` — review selected items, update quantities, remove products, and place orders via checkout.
-- `Account` — sign in, sign up, profile management, avatar upload, and order history for authenticated users.
-- `Admin` — restricted dashboard for approved admin emails, with direct access to product, order, and settings management pages.
-- `About` — brand story and mission page describing the purpose and values behind the storefront.
+- `Home` — landing page for the brand, with hero messaging, an attractive hero image, featured product previews, and a quick link to the shop.
+- `Shop` — live product catalog with filters, product cards, and an embedded `AI Stylist` recommendation panel for outfit suggestions.
+- `Product details` — server-loaded product page showing images, description, prices, sizes, styling notes, and an add-to-cart button.
+- `Cart` — client-side cart flow that persists items in `localStorage`, supports quantity changes, item removal, and checkout details.
+- `Account` — authentication area with email sign-in, sign-up, magic link support, profile editing, avatar upload, and order history retrieval.
+- `Admin` — protected admin area that only appears for authorized admin emails, with navigation to product, order, and settings management.
+- `About` — brand story page with mission and value messaging to support the sustainable thrift concept.
+
+## Feature walk-through
+
+### Homepage
+- Displays a clean hero section with brand name, tagline, and a CTA button.
+- Includes featured collections and product teasers that highlight the storefront’s curated thrift style.
+- Includes a fixed chat button for AI assistance and quick access to the shopping cart.
+
+### AI styling
+- The AI chat widget is available from every page as a floating chat bubble.
+- The stylist panel on the shop page accepts style preferences and returns outfit recommendations.
+- If `GROQ_API_KEY` is not set, the app falls back to local AI response templates from `lib/ai-fallback.ts`.
+
+### Cart flow
+- Users can add products from the shop or product details pages.
+- The cart is stored in browser `localStorage`, so items remain across refreshes.
+- Users can update quantity or remove items in the cart page before checkout.
+- The checkout form submits an order to `app/api/orders/route.ts`, which saves the order to Supabase for authenticated users.
 
 ## Project Structure
 
