@@ -26,7 +26,8 @@ async function authorize(request: Request) {
   return { supabaseServer };
 }
 
-export async function PATCH(request: Request, { params }: { params: { id: string } }) {
+export async function PATCH(request: Request, context: any) {
+  const { params } = context;
   const auth = await authorize(request);
   if ('error' in auth) return auth.error;
   const supabaseServer = auth.supabaseServer;
@@ -51,7 +52,8 @@ export async function PATCH(request: Request, { params }: { params: { id: string
   return NextResponse.json({ product: data });
 }
 
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(request: Request, context: any) {
+  const { params } = context;
   const auth = await authorize(request);
   if ('error' in auth) return auth.error;
   const supabaseServer = auth.supabaseServer;
